@@ -1,0 +1,37 @@
+<div>
+    <section>
+        <article class="shadow-sm" *ngFor="let post of posts">
+            <h2>{{post.title}}</h2>
+            <p>{{post.description}}</p>
+            <span id="yo">{{post.creationdate}}</span>
+            <button class="btn btn-success me-2" *ngIf="isLoggedIn" (click)="editItem(post._id)">Editar</button>
+            <button class="btn btn-danger" *ngIf="isLoggedIn" (click)="deleteItem(post._id)">Borrar</button>
+
+            <!-- <form *ngIf="editMode" #f="ngForm" (ngSubmit)="onSubmit(f)">
+                <h5>Crea un nuevo post aquí</h5>
+                Título <br>
+                <input type="text" name="title" id="title" ngModel required #title="ngModel"> <br>
+                Cuerpo <br>
+                <textarea name="content" id="content" rows="5" cols="30" ngModel required #content="ngModel"></textarea> <br> <br>
+                <input class="btn btn-primary border-0" type="submit" value="Crear nuevo post">
+            </form> -->
+
+        </article>
+
+    </section>
+
+    <aside>
+        <app-login></app-login>
+        <div class="my-5">
+            <form *ngIf="isLoggedIn" #f="ngForm" (ngSubmit)="onSubmit(f)">
+                <h5>Crea un nuevo post aquí</h5>
+                Título <br>
+                <input type="text" name="title" id="title" ngModel required #title="ngModel"> <br>
+                Cuerpo <br>
+                <textarea name="content" id="content" rows="5" cols="30" ngModel required #content="ngModel"></textarea> <br> <br>
+                <input class="btn btn-primary border-0" type="submit" value="Crear nuevo post">
+            </form>
+        </div>
+    </aside>
+
+</div>

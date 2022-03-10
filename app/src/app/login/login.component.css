@@ -1,0 +1,7 @@
+.container{
+    border: 1px solid blue;
+    border-radius: 10px;
+    -webkit-box-shadow: 9px 10px 23px 0px rgba(41, 29, 201, 0.75);
+    -moz-box-shadow: 9px 10px 23px 0px rgba(41, 29, 201, 0.75);
+    box-shadow: 9px 10px 23px 0px rgba(41, 29, 201, 0.75);
+}

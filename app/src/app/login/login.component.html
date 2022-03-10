@@ -1,0 +1,40 @@
+<div class="container">
+    <div *ngIf="!isLoggedIn">
+        <form *ngIf="isRegistred" #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+            <h1>Iniciar Sesión</h1>
+            <label for="username">Usuario</label>
+            <input class="form-control" type="text" name="username" id="username" ngModel required #username="ngModel">
+            <label for="Password">Contraseña</label>
+            <input class="form-control" type="password" name="password" id="password" ngModel required #password="ngModel">
+            <input class="btn btn-primary  my-3" type="submit" value="Iniciar sesión"> <br>
+            <a class="link-primary" (click)="OpenRegisterModal()">o registrate</a>
+        </form>
+    
+        <form *ngIf="!isRegistred" #f="ngForm" (ngSubmit)="onSubmitReg(f)" novalidate>
+            <h1>Registrarse</h1>
+            <label for="username">Usuario</label>
+            <input class="form-control" type="text" name="username" id="username" ngModel required #username="ngModel">
+            <label for="Password">Contraseña</label>
+            <input class="form-control" type="password" name="password" id="password" ngModel required #password="ngModel">
+            <label for="Password">Repite la contraseña</label>
+            <input class="form-control" type="password" name="password2" id="password" ngModel required #password2="ngModel">
+            <label for="fullname">Nombre completo</label>
+            <input class="form-control" type="text" name="fullname" id="fullname" ngModel required #fullname="ngModel">
+    
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="role" id="admin" value="admin">
+                <label class="form-check-label" for="admin">Administrador</label> <br>
+                <input class="form-check-input" type="radio" name="role" id="subscriber" value="subscriber">
+                <label class="form-check-label" for="subscriber">Suscriptor</label>
+            </div>
+    
+            <input class="btn btn-primary my-3" type="submit" value="Registrarse"> <br>
+            <a  class="link-primary" (click)="OpenRegisterModal()">o Inicia sesión</a>
+        </form>
+    </div>
+    
+    <div *ngIf="isLoggedIn">
+    <button class="btn btn-primary" (click)="CloseSesion()">Cerrar sesión</button>
+    
+    </div>
+</div>
